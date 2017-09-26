@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<configuration>
+  <!-- 
+  <property>
+    <name>apex.application.{appName}.operator.{opName}.prop.{propName}</name>
+    <value>some-default-value (if value is not specified, it is required from the user or custom config when launching)</value>
+  </property>
+  -->
+  <!-- memory assigned to app master
+  <property>
+    <name>apex.attr.MASTER_MEMORY_MB</name>
+    <value>1024</value>
+  </property>
+  
+  <property>
+    <name>apex.application.MyFirstApplication.operator.randomGenerator.prop.numTuples</name>
+    <value>1000</value>
+  </property>
+  <property>
+    <name>apex.application.MyFirstApplication.operator.console.prop.stringFormat</name>
+    <value>hello world: %s</value>
+  </property>
+  -->
+  
+  <property>
+    <name>dt.operator.kafkaInput.prop.clusters</name>
+    <value>master1.datatorrent.com:9092</value>
+  </property> 
+  <property>
+    <name>dt.operator.kafkaInput.prop.topics</name>
+    <value>test</value>
+  </property>
+  <property>
+    <name>dt.operator.kafkaInput.prop.initialOffset</name>
+    <value>EARLIEST</value>
+  </property>
+  
+  <!-- 
+  <property>
+    <name>dt.operator.Enricher.prop.postgresURL</name>
+    <value>"jdbc:postgresql://master1.datatorrent.com:5432/testdb?user=postgres&password=postgres"</value>
+  </property>
+   -->
+  
+   
+  <property>
+    <name>dt.operator.Enricher.prop.databaseHostname</name>
+    <value></value>
+  </property>
+  
+  <property>
+    <name>dt.operator.Enricher.prop.databasePortname</name>
+    <value></value>
+  </property>
+  
+  <property>
+    <name>dt.operator.Enricher.prop.databaseName</name>
+    <value></value>
+  </property>
+  
+  <property>
+    <name>dt.operator.Enricher.prop.databaseUser</name>
+    <value></value>
+  </property>
+  
+  <property>
+    <name>dt.operator.Enricher.prop.databasePassword</name>
+    <value></value>
+  </property>
+  
+   
+  <!-- 
+  <property>
+    <name>dt.operator.fileOutput.prop.filePath</name>
+    <value>/tmp</value>
+  </property>
+  <property>
+    <name>dt.operator.fileOutput.prop.outputFileName</name>
+    <value>output.txt</value>
+  </property>
+  
+   <property>
+    <name>dt.operator.csvParser.prop.schema</name>
+    <value>{
+      "separator": "|",
+      "quoteChar": "\"",
+      "fields": [
+        {
+          "name": "uid",
+          "type": "Integer"
+        },
+        {
+          "name": "uname",
+          "type": "String"
+        }
+      ]
+    }
+    </value>
+  </property>
+  
+  <property>
+    <name>dt.operator.formatter.prop.schema</name>
+    <value>{
+      "separator": "|",
+      "quoteChar": "\"",
+      "fields": [
+        {
+          "name": "uid",
+          "type": "Integer"
+        },
+        {
+          "name": "uname",
+          "type": "String"
+        }
+      ]
+    }
+    </value>
+  </property>
+  
+  
+  <property>
+    <name>dt.operator.csvParser.port.out.attr.TUPLE_CLASS</name>
+    <value>com.example.myapexapp.User</value>
+  </property>
+  
+  <property>
+    <name>dt.operator.formatter.port.in.attr.TUPLE_CLASS</name>
+    <value>com.example.myapexapp.User</value>
+  </property>
+  -->
+  
+  
+  
+ <!-- 
+  <property>
+  <name>dt.operator.jsonParser.port.out.attr.TUPLE_CLASS</name>
+  <value>com.example.myapexapp.User</value>
+  <value></value>
+  </property>
+  -->
+  <property>
+  <name>dt.operator.jsonParser.port.out.attr.TUPLE_CLASS</name>
+  <value>com.example.myapexapp.RecommendationInput</value>
+  <value></value>
+  </property>
+  
+  
+  <!--  
+  <property>
+  <name>dt.operator.Enricher.port.out.attr.TUPLE_CLASS</name>
+  <value>com.example.myapexapp.User</value>
+  <value></value>
+  </property>
+  -->
+  
+  <property>
+  <name>dt.operator.Enricher.port.out.attr.TUPLE_CLASS</name>
+  <value>com.example.myapexapp.RecommendationInput</value>
+  <value></value>
+  </property>
+  
+  <property>
+  <name>dt.operator.Enricher.port.in.attr.TUPLE_CLASS</name>
+  <value>com.example.myapexapp.RecommendationInput</value>
+  <value></value>
+  </property>
+  
+  <property>
+  <name>dt.operator.Recommender.port.in.attr.TUPLE_CLASS</name>
+  <value>com.example.myapexapp.RecommendationInput</value>
+  <value></value>
+  </property>
+  
+  <property>
+  <name>dt.operator.Recommender.port.out.attr.TUPLE_CLASS</name>
+  <value>com.example.myapexapp.RecommendationInput</value>
+  <value></value>
+  </property>
+  
+  <property>
+  <name>dt.operator.EnrichmentofRecommendation.port.in.attr.TUPLE_CLASS</name>
+  <value>com.example.myapexapp.RecommendationInput</value>
+  <value></value>
+  </property>
+  
+  <property>
+  <name>dt.operator.EnrichmentofRecommendation.port.out.attr.TUPLE_CLASS</name>
+  <value>com.example.myapexapp.RecommendationInput</value>
+  <value></value>
+  </property>
+  
+  
+  
+  <property>
+    <name>dt.operator.jsonformatter.port.in.attr.TUPLE_CLASS</name>
+    <value>com.example.myapexapp.RecommendationInput</value>
+  </property>
+  
+   <property>
+    <name>apex.app-param.KafkaOutputTopicName</name>
+    <description>Specify Kafka topic name for producer. Eg: transactions</description>
+  </property>
+  <property>
+    <name>dt.operator.kafkaOutput.prop.topic</name>
+    <!-- <value>${apex.app-param.KafkaOutputTopicName}</value> -->
+    <value>testout</value>
+  </property>
+  
+  <property>
+  <name>dt.operator.kafkaOutput.prop.properties(bootstrap.servers)</name>
+  <value>master1.datatorrent.com:9092</value> // Specify your broker list here.
+</property>
+
+<property>
+  <name>dt.operator.kafkaOutput.prop.properties(key.serializer)</name>
+  <value>org.apache.kafka.common.serialization.StringSerializer</value>
+</property>
+<property>
+  <name>dt.operator.kafkaOutput.prop.properties(value.serializer)</name>
+  <value>org.apache.kafka.common.serialization.StringSerializer</value>
+</property>
+<!-- 
+<property>
+<name>dt.operator.kafkaOutput.prop.properties(value.serializer)</name>
+  <value>org.apache.kafka.common.serialization.ByteArraySerializer</value>
+</property>
+<property>
+  <name>dt.operator.kafkaOutput.prop.properties(key.deserializer)</name>
+  <value>org.apache.kafka.common.serialization.ByteArrayDeserializer</value>
+</property>-->
+ -->
+ 
+ 
+</configuration>
+
